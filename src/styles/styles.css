@@ -1,0 +1,495 @@
+@font-face {
+  font-family: BrutalFont;
+  src: url(ChivoMono-VariableFont_wght.ttf);
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: BrutalFont;
+}
+
+#root, body, html {
+  height: 100%;
+  width: 100%;
+}
+
+.free {
+  background-color: rgb(122, 241, 152) !important;
+}
+
+.mixed {
+  background-color: rgb(214, 243, 108) !important;
+}
+
+.busy {
+  background-color: rgb(255, 108, 145) !important;
+}
+
+button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modals {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1em;
+  text-align: center;
+  background-color: rgb(247, 233, 187);
+  border: 2px solid black;
+  border-top: none;
+}
+.modals h3 {
+  background-color: rgb(247, 233, 187);
+  border: 2px solid black;
+  filter: drop-shadow(3px 3px 0px black);
+  background-color: white;
+  padding: 0.25em 0.5em;
+  margin-bottom: 0.5em;
+}
+.modals button {
+  width: 100%;
+  background-color: rgb(247, 233, 187);
+  border: 2px solid black;
+  filter: drop-shadow(3px 3px 0px black);
+  font-size: 1.1em;
+  padding: 0.25em;
+  background-color: white;
+}
+.modals button:first-of-type {
+  margin: 0.5em 0;
+  background-color: rgb(255, 108, 145);
+}
+
+#calendar {
+  max-width: 800px;
+  background-color: rgb(149, 108, 224);
+  margin: auto;
+  padding-top: 60px;
+  height: 100%;
+  justify-content: flex-start;
+}
+#calendar #header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  padding-bottom: 0px;
+  height: 4em;
+  gap: 4px;
+  width: 100%;
+}
+#calendar #header p {
+  background-color: rgb(247, 233, 187);
+  border: 2px solid black;
+  filter: drop-shadow(2px 2px 0px black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 2%;
+  height: 100%;
+  flex-grow: 1;
+  font-size: clamp(20px, 4vw, 32px);
+  text-overflow: ellipsis;
+}
+#calendar #header button {
+  background-color: rgb(247, 233, 187);
+  border: 2px solid black;
+  filter: drop-shadow(2px 2px 0px black);
+  height: 100%;
+  aspect-ratio: 1/1;
+}
+#calendar #header button:first-of-type {
+  background-color: rgb(122, 241, 152);
+}
+#calendar #header button:last-of-type {
+  background-color: rgb(81, 137, 241);
+}
+#calendar #month-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  height: 4em;
+  border-bottom: none;
+  padding: 4px;
+  gap: 4px;
+  width: 100%;
+}
+#calendar #month-container button {
+  height: 100%;
+  aspect-ratio: 1/1;
+  background-color: rgb(247, 233, 187);
+  border: 2px solid black;
+  filter: drop-shadow(max(0.2vw, 2px) max(0.2vw, 2px) 0px black);
+}
+#calendar #month-container p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  height: 100%;
+  font-size: 2em;
+  background-color: rgb(247, 233, 187);
+  border: 2px solid black;
+  filter: drop-shadow(max(0.2vw, 2px) max(0.2vw, 2px) 0px black);
+}
+#calendar #grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  max-width: 800px;
+  gap: 4px;
+  padding: 4px;
+  padding-top: 0px;
+}
+#calendar #grid button {
+  background-color: rgb(247, 233, 187);
+  border: 2px solid black;
+  width: 100%;
+  aspect-ratio: 1/1;
+  color: black;
+  font-size: min(30px, 5vw);
+  font-family: BrutalFont;
+  filter: drop-shadow(max(0.3vw, 2px) max(0.3vw, 2px) 0px black);
+}
+#calendar #availability {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+#calendar #availability button {
+  background-color: rgb(247, 233, 187);
+  border: 2px solid black;
+  font-size: 1.1em;
+  padding: 0.25em 0;
+  width: 100px;
+  filter: drop-shadow(2px 2px 0px black);
+}
+
+.error {
+  width: 75%;
+  text-align: center;
+  margin: auto;
+  background-color: rgb(247, 233, 187);
+  border: 2px solid black;
+  background-color: rgb(255, 108, 145);
+  filter: drop-shadow(2px 2px 0px black);
+  padding: 0.25em 0.5em;
+}
+
+#login_page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(81, 137, 241);
+}
+#login_page form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: min(95%, 400px);
+  background-color: rgb(247, 233, 187);
+  border: 2px solid black;
+  filter: drop-shadow(4px 4px 0px black);
+  padding: 1em;
+  gap: 1em;
+}
+#login_page form h2 {
+  background-color: rgb(247, 233, 187);
+  border: 2px solid black;
+  filter: drop-shadow(2px 2px 0px black);
+  background-color: white;
+  text-align: center;
+  padding: 0.25em 0.5em;
+}
+#login_page form label {
+  width: 100%;
+}
+#login_page form span {
+  background-color: rgb(247, 233, 187);
+  border: 2px solid black;
+  background-color: rgb(255, 108, 145);
+  padding: 0.25em;
+  filter: drop-shadow(2px 2px 0px black);
+}
+#login_page form input {
+  width: 100%;
+  height: 2em;
+  background-color: rgb(247, 233, 187);
+  border: 2px solid black;
+  background-color: white;
+  filter: drop-shadow(2px 2px 0px black);
+  padding-left: 0.5em;
+}
+#login_page form input:focus {
+  outline: 2px dashed rgb(81, 137, 241);
+}
+#login_page form button {
+  background-color: rgb(247, 233, 187);
+  border: 2px solid black;
+  filter: drop-shadow(2px 2px 0px black);
+  background-color: white;
+  text-align: center;
+  padding: 0.25em 0.5em;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+#login_page form .need-account {
+  height: 50px;
+  width: 100%;
+  text-align: center;
+}
+#login_page form .need-account p {
+  -webkit-text-decoration: underline 2px dashed rgb(81, 137, 241);
+          text-decoration: underline 2px dashed rgb(81, 137, 241);
+  cursor: pointer;
+  padding-bottom: 1px;
+}
+
+.slide-up {
+  transform: translate(0, -100%);
+}
+
+aside {
+  height: 90vh;
+  width: 300px;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: rgb(247, 233, 187);
+  border: 2px solid black;
+  filter: drop-shadow(4px 4px 0px black);
+  transition: all 0.5s ease-in-out;
+}
+aside #toggle {
+  height: 35px;
+  outline: 2px solid black;
+  position: absolute;
+  bottom: -35px;
+  width: 300px;
+}
+aside #toggle button {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 108, 145);
+  border: none;
+  outline: none;
+}
+aside #profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 0.5em;
+  gap: 0.25em;
+  background-color: rgb(214, 243, 108);
+  border-bottom: 2px solid black;
+}
+aside #profile div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+aside #profile div:nth-of-type(1) h4 {
+  width: 100%;
+  font-size: 1.2em;
+}
+aside #profile div:nth-of-type(1) button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(247, 233, 187);
+  border: 2px solid black;
+  cursor: pointer;
+  background-color: rgb(255, 108, 145);
+}
+aside #profile div:nth-of-type(2) p {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 30px;
+  border: 2px dashed black;
+  background-color: white;
+  font-size: 0.7em;
+  padding-left: 0.5em;
+  cursor: pointer;
+}
+aside #profile div:nth-of-type(2) p svg {
+  margin-left: auto;
+}
+aside #profile div:nth-of-type(3) {
+  gap: 0.25em;
+}
+aside #profile div:nth-of-type(3) button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(247, 233, 187);
+  border: 2px solid black;
+  cursor: pointer;
+  background-color: rgb(122, 241, 152);
+}
+aside #profile div:nth-of-type(3) input {
+  flex-grow: 1;
+  height: 100%;
+  background-color: rgb(247, 233, 187);
+  border: 2px solid black;
+  background-color: white;
+  padding-left: 0.5em;
+}
+aside #profile div:nth-of-type(3) input:focus {
+  outline: 2px dashed rgb(81, 137, 241);
+}
+aside #contacts {
+  flex-grow: 1;
+  background-color: rgb(122, 241, 152);
+  width: 100%;
+  overflow-y: auto;
+}
+aside #contacts div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+aside #contacts div p {
+  padding: 0.5em;
+  padding-right: 0px;
+  cursor: pointer;
+}
+aside #contacts div ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  list-style: none;
+  width: 100%;
+  gap: 0.5em;
+}
+aside #contacts div ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: flex-end;
+  width: 95%;
+  background-color: rgb(247, 233, 187);
+  border: 2px solid black;
+  background-color: white;
+  filter: drop-shadow(2px 2px 0px black);
+  padding: 0.25em;
+  gap: 0.25em;
+}
+aside #contacts div ul li:last-of-type {
+  margin-bottom: 0.5em;
+}
+aside #contacts div ul li p {
+  padding-left: 1em;
+  margin-right: auto;
+}
+aside #contacts #requests {
+  background-color: rgb(247, 233, 187);
+  border: 2px solid black;
+  background-color: rgb(81, 137, 241);
+  border: none;
+  border-bottom: 2px solid black;
+}
+aside #contacts #requests button {
+  background-color: rgb(247, 233, 187);
+  border: 2px solid black;
+}
+aside #contacts #requests button:first-of-type {
+  background-color: rgb(122, 241, 152);
+}
+aside #contacts #requests button:last-of-type {
+  background-color: rgb(255, 108, 145);
+}
+aside #contacts #added {
+  background-color: rgb(122, 241, 152);
+}
+aside #contacts #added button {
+  background-color: rgb(247, 233, 187);
+  border: 2px solid black;
+}
+aside #contacts #added button:first-of-type {
+  background-color: rgb(81, 137, 241);
+}
+aside #contacts #added button:last-of-type {
+  background-color: rgb(255, 108, 145);
+}
+
+#main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(149, 108, 224);
+  height: 100%;
+  width: 100%;
+}
+
+@-webkit-keyframes pop-in {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes pop-in {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.pop-in {
+  -webkit-animation: pop-in 0.25s ease-in-out;
+          animation: pop-in 0.25s ease-in-out;
+}
+
+@media only screen and (min-width: 1000px) {
+  .slide-up {
+    transform: translate(0, 0);
+  }
+  #toggle {
+    display: none !important;
+  }
+  #main-container {
+    flex-direction: row;
+    padding: 1em;
+  }
+  aside {
+    position: relative;
+  }
+  #calendar {
+    height: 90vh;
+    justify-content: flex-start;
+    padding: 0px;
+  }
+}/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,452 @@
+@font-face {
+    font-family: BrutalFont;
+    src: url(ChivoMono-VariableFont_wght.ttf);
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family:  BrutalFont;
+}
+
+@mixin flexCenter() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin brutalStyle() {
+    background-color: $beige;
+    border: 2px solid black;
+}
+
+@mixin dropShadow($spread) {
+    filter: drop-shadow($spread $spread 0px black);
+}
+
+$beige: rgb(247, 233, 187);
+$green: rgb(122, 241, 152);
+$yellow: rgb(214, 243, 108);
+$pink: rgb(255, 108, 145);
+$purple: rgb(149, 108, 224);
+$blue: rgb(81, 137, 241);
+
+#root, body, html {
+    height: 100%;
+    width: 100%;
+}
+
+.free {
+    background-color: $green !important;
+}
+.mixed {
+    background-color: $yellow !important;
+}
+.busy {
+    background-color: $pink !important;
+}
+
+button {
+    cursor: pointer;
+    @include flexCenter();
+}
+
+.modals {
+    width: 300px;
+    @include flexCenter();
+    flex-direction: column;
+    padding: 1em;
+    text-align: center;
+    @include brutalStyle();
+    border-top: none;
+    h3 {
+        @include brutalStyle();
+        @include dropShadow(3px);
+        background-color: white;
+        padding: 0.25em 0.5em;
+        margin-bottom: 0.5em;
+    }
+    button {
+        width: 100%;
+        @include brutalStyle();
+        @include dropShadow(3px);
+        font-size: 1.1em;
+        padding: 0.25em;
+        background-color: white;
+        &:first-of-type {
+            margin: 0.5em 0;
+            background-color: $pink;
+        }
+    }
+}
+
+#calendar {
+    max-width: 800px;
+    background-color: $purple;
+    margin: auto;
+    padding-top: 60px;
+    height: 100%;
+    justify-content: flex-start;
+    #header {
+        @include flexCenter();
+        padding: 4px;
+        padding-bottom: 0px;
+        height: 4em;
+        gap: 4px;
+        width: 100%;
+        p {
+            @include brutalStyle();
+            @include dropShadow(2px);
+            @include flexCenter();
+            justify-content: flex-start;
+            padding: 0 2%;
+            height: 100%;
+            flex-grow: 1;
+            font-size: calc(clamp(20px, 4vw, 32px));
+            text-overflow: ellipsis;
+        }
+        button {
+            @include brutalStyle();
+            @include dropShadow(2px);
+            height: 100%;
+            aspect-ratio: 1/1;
+            &:first-of-type {
+                background-color: $green;
+            }
+            &:last-of-type {
+                background-color: $blue;
+            }
+        }
+    }
+    #month-container {
+        @include flexCenter();
+        justify-content: space-between;
+        height: 4em;
+        border-bottom: none;
+        padding: 4px;
+        gap: 4px;
+        width: 100%;
+        button {
+            height: 100%;
+            aspect-ratio: 1/1;
+            @include brutalStyle();
+            @include dropShadow(calc(max(0.2vw, 2px)));
+        }
+        p {
+            @include flexCenter();
+            flex-grow: 1;
+            height: 100%;
+            font-size: 2em;
+            @include brutalStyle();
+            @include dropShadow(calc(max(0.2vw, 2px)));
+        }
+    }
+    #grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        max-width: 800px;
+        gap: 4px;
+        padding: 4px;
+        padding-top: 0px;
+        button {
+            @include brutalStyle();
+            width: 100%;
+            aspect-ratio: 1/1;
+            color: black;
+            font-size: calc(min(30px, 5vw));
+            font-family: BrutalFont;
+            @include dropShadow(calc(max(0.3vw, 2px)));
+
+        }
+    }
+    #availability {
+        width: 100%;
+        @include flexCenter();
+        flex-wrap: wrap;
+        gap: 4px;
+        button {
+            @include brutalStyle;
+            font-size: 1.1em;
+            padding: 0.25em 0;
+            width: 100px;
+            @include dropShadow(2px);
+        }
+    }
+}
+
+.error {
+    width: 75%;
+    text-align: center;
+    margin: auto;
+    @include brutalStyle();
+    background-color: $pink;
+    @include dropShadow(2px);
+    padding: 0.25em 0.5em;
+}
+
+#login_page {
+    @include flexCenter();
+    width: 100%;
+    height: 100vh;
+    background-color: $blue;
+    form {
+        @include flexCenter();
+        flex-direction: column;
+        width: calc(min(95%, 400px));
+        @include brutalStyle();
+        @include dropShadow(4px);
+        padding: 1em;
+        gap: 1em;
+        h2 {
+            @include brutalStyle();
+            @include dropShadow(2px);
+            background-color: white;
+            text-align: center;
+            padding: 0.25em 0.5em;
+        }
+        label {
+            width: 100%;
+        }
+        span {
+            @include brutalStyle();
+            background-color: $pink;
+            padding: 0.25em;
+            @include dropShadow(2px);
+        }
+        input {
+            width: 100%;
+            height: 2em;
+            @include brutalStyle();
+            background-color: white;
+            @include dropShadow(2px);
+            padding-left: 0.5em;
+            &:focus {
+                outline: 2px dashed $blue;
+            }
+        }
+        button {
+            @include brutalStyle();
+            @include dropShadow(2px);
+            background-color: white;
+            text-align: center;
+            padding: 0.25em 0.5em;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+        .need-account {
+            height: 50px;
+            width: 100%;
+            text-align: center;
+            p {
+                text-decoration: underline 2px dashed $blue;
+                cursor: pointer;
+                padding-bottom: 1px;
+            }
+        }
+    }
+}
+
+.slide-up {
+    transform: translate(0, -100%);
+}
+
+aside {
+    height: 90vh;
+    width: 300px;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    @include flexCenter();
+    flex-direction: column;
+    justify-content: flex-start;
+    @include brutalStyle();
+    @include dropShadow(4px);
+    transition: all 0.5s ease-in-out;
+    #toggle {
+        height: 35px;
+        outline: 2px solid black;
+        position: absolute;
+        bottom: -35px;
+        width: 300px;
+        button {
+            width: 100%;
+            height: 100%;
+            background-color: $pink;
+            border: none;
+            outline: none;
+        }
+    }
+    #profile {
+        @include flexCenter();
+        flex-direction: column;
+        width: 100%;
+        padding: 0.5em;
+        gap: 0.25em;
+        background-color: $yellow;
+        border-bottom: 2px solid black;
+        div {
+            width: 100%;
+            @include flexCenter();
+            &:nth-of-type(1) {
+                h4 {
+                    width: 100%;
+                    font-size: 1.2em;
+                }
+                button {
+                    @include flexCenter();
+                    @include brutalStyle();
+                    cursor: pointer;
+                    background-color: $pink;
+                }
+            }
+            &:nth-of-type(2) {
+                p {
+                    width: 100%;
+                    @include flexCenter();
+                    justify-content: flex-start;
+                    min-height: 30px;
+                    border: 2px dashed black;
+                    background-color: white;
+                    font-size: 0.7em;
+                    padding-left: 0.5em;
+                    cursor: pointer;
+                    svg {
+                        margin-left: auto;
+                    }
+                }
+            }
+            &:nth-of-type(3) {
+                gap: 0.25em;
+                button {
+                    @include flexCenter();
+                    @include brutalStyle();
+                    cursor: pointer;
+                    background-color: $green;
+                }
+                input {
+                    flex-grow: 1;
+                    height: 100%;
+                    @include brutalStyle();
+                    background-color: white;
+                    padding-left: 0.5em;
+                    &:focus {
+                        outline: 2px dashed $blue;
+                    }
+                }
+            }
+        }
+    }
+    #contacts {
+        flex-grow: 1;
+        background-color: $green;
+        width: 100%;
+        overflow-y: auto;
+        div {
+            @include flexCenter();
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+            p {
+                padding: 0.5em;
+                padding-right: 0px;
+                cursor: pointer;
+            }
+            ul {
+                @include flexCenter();
+                flex-direction: column;
+                list-style: none;
+                width: 100%;
+                gap: 0.5em;
+                li {
+                    @include flexCenter();
+                    justify-content: flex-end;
+                    width: 95%;
+                    @include brutalStyle();
+                    background-color: white;
+                    @include dropShadow(2px);
+                    padding: 0.25em;
+                    gap: 0.25em ;
+                    &:last-of-type {
+                        margin-bottom: 0.5em;
+                    }
+                    p {
+                        padding-left: 1em;
+                        margin-right: auto;
+                    }
+                
+                }
+            }
+        }
+        #requests {
+            @include brutalStyle(); 
+            background-color: $blue;
+            border: none;
+            border-bottom: 2px solid black;
+            button {
+                @include brutalStyle();
+                &:first-of-type {
+                    background-color: $green;
+                }
+                &:last-of-type {
+                    background-color: $pink;
+                }
+            }
+        }
+        #added {
+            background-color: $green;
+            button {
+                @include brutalStyle();
+                &:first-of-type {
+                    background-color: $blue;
+                }
+                &:last-of-type {
+                    background-color: $pink;
+                }
+           
+            }
+        }
+    }
+}
+
+#main-container {
+    @include flexCenter();
+    flex-direction: column;
+    background-color: $purple;
+    height: 100%;
+    width: 100%;
+}
+
+@keyframes pop-in {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    } 
+}
+
+.pop-in {
+    animation: pop-in 0.25s ease-in-out;
+}
+
+@media only screen and (min-width: 1000px) {
+    .slide-up {
+        transform: translate(0, 0);
+    }
+    #toggle {
+        display: none !important;
+    }
+    #main-container {
+        flex-direction: row;
+        padding: 1em;
+    }
+    aside {
+        position: relative;
+    }
+    #calendar {
+        height: 90vh;
+        justify-content: flex-start;
+        padding: 0px;
+    }
+}
