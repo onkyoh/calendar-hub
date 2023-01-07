@@ -24,12 +24,18 @@ const CalendarContainer = (props) => {
   return (
     <section id='calendar'>
         <div id='header'>
-            <p>{props.calendarInfo.usersName}'s Calendar</p>
-            <button onClick={() => saveCalendar(props.defaultCalendar.usersCalendar, schedule)}
-             disabled={props.defaultCalendar.usersCalendar !== props.calendarInfo.usersCalendar}>
+            <p>{props.calendarInfo.usersName}'s</p>
+            <button 
+            onClick={() => saveCalendar(props.defaultCalendar.usersCalendar, schedule)} 
+            disabled={props.defaultCalendar.usersCalendar !== props.calendarInfo.usersCalendar}
+            >
                 <SaveIcon size={40}/>
             </button>
-            <button onClick={() => props.switchCalendar({...props.defaultCalendar})}><CalendarIcon size={35}/></button>
+            <button onClick={() => props.switchCalendar({...props.defaultCalendar})}
+             disabled={props.defaultCalendar.usersCalendar === props.calendarInfo.usersCalendar}
+            >
+                <CalendarIcon size={35}/>
+            </button>
         </div>
 
         <div id='month-container'>
@@ -46,7 +52,9 @@ const CalendarContainer = (props) => {
                 {...button}
                 onClick={handleAvailability}
                 availability={availability}
-                disabled={props.defaultCalendar.usersCalendar !== props.calendarInfo.usersCalendar}/>  
+                disabled={props.defaultCalendar.usersCalendar !== props.calendarInfo.usersCalendar}
+                key={button.value}
+                />  
             ))}
         </div>
     </section>

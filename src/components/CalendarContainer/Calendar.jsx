@@ -1,3 +1,4 @@
+import { DAYS } from '../../consts/constants'
 import Button from './Button'
 
 const Calendar = (props) => {
@@ -8,6 +9,9 @@ const Calendar = (props) => {
 
   return (
     <div id='grid'>
+        {DAYS.map(day => (
+          <button className='days' style={{backgroundColor: day.color}}>{day.day}</button>
+        ))}
         {props.schedule && buffers.map(buffer => (
             <div></div>
         ))}

@@ -61,3 +61,21 @@ export const AVAILABILITY_LIST = [
         color: COLORS.PINK
     },
 ]
+
+export const DAYS = [
+    { 
+        day: 's',
+    }, { 
+        day: 'm',
+    }, { 
+        day: 't',
+    }, { 
+        day: 'w',
+    }, { 
+        day: 't',
+    }, { 
+        day: 'f',
+    }, { 
+        day: 's',
+    },
+]

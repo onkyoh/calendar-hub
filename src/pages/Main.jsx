@@ -3,6 +3,7 @@ import ContactsBar from '../components/ContactsBar/ContactsBar'
 import CalendarContainer from '../components/CalendarContainer/CalendarContainer'
 import useFetchInfo from '../hooks/useFetchInfo'
 import useSwitchCalendar from '../hooks/useSwitchCalendar'
+import { requestForToken } from '../utils/requestForToken'
 
 const Main = (props) => {
 

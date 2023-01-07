@@ -70,7 +70,7 @@ const ContactsBar = (props) => {
           {show.requests &&
             <ul>
               {props.incomingRequests && props.incomingRequests.map((incomingUser) => (
-                <IncomingItem accept={accept} deny={deny} incomingUser={incomingUser} userContactInfo={userContactInfo}/>
+                <IncomingItem accept={accept} deny={deny} incomingUser={incomingUser} userContactInfo={userContactInfo} key={incomingUser.usersId}/>
               ))}
             </ul>
           }
@@ -81,7 +81,7 @@ const ContactsBar = (props) => {
           {show.added && 
             <ul>
               {props.contacts && props.contacts.map((contact) => (
-                <ContactItem contact={contact} switchCalendar={props.switchCalendar} calendarId={props.calendarId} toggleDelete={toggleDelete}/>
+                <ContactItem contact={contact} switchCalendar={props.switchCalendar} calendarId={props.calendarId} toggleDelete={toggleDelete} key={contact.usersId}/>
               ))}
             </ul>
           }

@@ -90,21 +90,17 @@ button {
     justify-content: flex-start;
     #header {
         @include flexCenter();
-        padding: 4px;
-        padding-bottom: 0px;
-        height: 4em;
+        padding-inline: 4px;
         gap: 4px;
         width: 100%;
+        aspect-ratio: 7/1;
         p {
             @include brutalStyle();
             @include dropShadow(2px);
             @include flexCenter();
-            justify-content: flex-start;
-            padding: 0 2%;
             height: 100%;
             flex-grow: 1;
-            font-size: calc(clamp(20px, 4vw, 32px));
-            text-overflow: ellipsis;
+            font-size: calc(clamp(22px, 5vw,30px));
         }
         button {
             @include brutalStyle();
@@ -122,22 +118,23 @@ button {
     #month-container {
         @include flexCenter();
         justify-content: space-between;
-        height: 4em;
         border-bottom: none;
         padding: 4px;
         gap: 4px;
         width: 100%;
-        button {
-            height: 100%;
-            aspect-ratio: 1/1;
-            @include brutalStyle();
-            @include dropShadow(calc(max(0.2vw, 2px)));
-        }
+        aspect-ratio: 7/1;
         p {
             @include flexCenter();
             flex-grow: 1;
             height: 100%;
-            font-size: 2em;
+            font-size: calc(clamp(22px, 5vw,30px));
+            @include brutalStyle();
+            @include dropShadow(calc(max(0.2vw, 2px)));
+            text-transform: lowercase;
+        }
+        button {
+            height: 100%;
+            aspect-ratio: 1/1;
             @include brutalStyle();
             @include dropShadow(calc(max(0.2vw, 2px)));
         }
@@ -157,7 +154,9 @@ button {
             font-size: calc(min(30px, 5vw));
             font-family: BrutalFont;
             @include dropShadow(calc(max(0.3vw, 2px)));
-
+        }
+        .days {
+            cursor: auto;
         }
     }
     #availability {
@@ -252,7 +251,7 @@ button {
 }
 
 aside {
-    height: 90vh;
+    height: 60vh;
     width: 300px;
     position: fixed;
     top: 0;
@@ -439,13 +438,14 @@ aside {
     }
     #main-container {
         flex-direction: row;
-        padding: 1em;
+        padding: 50px;
     }
     aside {
         position: relative;
+        border: 2px solid;
+        align-self: flex-start;
     }
     #calendar {
-        height: 90vh;
         justify-content: flex-start;
         padding: 0px;
     }

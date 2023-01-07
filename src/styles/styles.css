@@ -79,11 +79,10 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4px;
-  padding-bottom: 0px;
-  height: 4em;
+  padding-inline: 4px;
   gap: 4px;
   width: 100%;
+  aspect-ratio: 7/1;
 }
 #calendar #header p {
   background-color: rgb(247, 233, 187);
@@ -92,12 +91,9 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  justify-content: flex-start;
-  padding: 0 2%;
   height: 100%;
   flex-grow: 1;
-  font-size: clamp(20px, 4vw, 32px);
-  text-overflow: ellipsis;
+  font-size: clamp(22px, 5vw, 30px);
 }
 #calendar #header button {
   background-color: rgb(247, 233, 187);
@@ -117,18 +113,11 @@ button {
   justify-content: center;
   align-items: center;
   justify-content: space-between;
-  height: 4em;
   border-bottom: none;
   padding: 4px;
   gap: 4px;
   width: 100%;
-}
-#calendar #month-container button {
-  height: 100%;
-  aspect-ratio: 1/1;
-  background-color: rgb(247, 233, 187);
-  border: 2px solid black;
-  filter: drop-shadow(max(0.2vw, 2px) max(0.2vw, 2px) 0px black);
+  aspect-ratio: 7/1;
 }
 #calendar #month-container p {
   display: flex;
@@ -136,7 +125,15 @@ button {
   align-items: center;
   flex-grow: 1;
   height: 100%;
-  font-size: 2em;
+  font-size: clamp(22px, 5vw, 30px);
+  background-color: rgb(247, 233, 187);
+  border: 2px solid black;
+  filter: drop-shadow(max(0.2vw, 2px) max(0.2vw, 2px) 0px black);
+  text-transform: lowercase;
+}
+#calendar #month-container button {
+  height: 100%;
+  aspect-ratio: 1/1;
   background-color: rgb(247, 233, 187);
   border: 2px solid black;
   filter: drop-shadow(max(0.2vw, 2px) max(0.2vw, 2px) 0px black);
@@ -158,6 +155,9 @@ button {
   font-size: min(30px, 5vw);
   font-family: BrutalFont;
   filter: drop-shadow(max(0.3vw, 2px) max(0.3vw, 2px) 0px black);
+}
+#calendar #grid .days {
+  cursor: auto;
 }
 #calendar #availability {
   width: 100%;
@@ -264,7 +264,7 @@ button {
 }
 
 aside {
-  height: 90vh;
+  height: 60vh;
   width: 300px;
   position: fixed;
   top: 0;
@@ -482,13 +482,14 @@ aside #contacts #added button:last-of-type {
   }
   #main-container {
     flex-direction: row;
-    padding: 1em;
+    padding: 50px;
   }
   aside {
     position: relative;
+    border: 2px solid;
+    align-self: flex-start;
   }
   #calendar {
-    height: 90vh;
     justify-content: flex-start;
     padding: 0px;
   }
