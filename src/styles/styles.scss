@@ -50,6 +50,7 @@ $blue: rgb(81, 137, 241);
 button {
     cursor: pointer;
     @include flexCenter();
+    color: black;
 }
 
 .modals {
