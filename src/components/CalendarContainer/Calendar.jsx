@@ -17,7 +17,7 @@ const Calendar = (props) => {
         ))}
         {props.schedule && layout.map((tile, i) => (
             <Button date={i + 1} activeDate={props.activeDate} selectedDate={props.selectedDate}
-             class={props.schedule[props.month][i].availability}
+             class={`${props.schedule[props.month][i].availability}  ${props.schedule[props.month][i].note && 'has-note'}`}
              />
         ))}
     </div>

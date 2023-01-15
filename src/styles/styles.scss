@@ -33,8 +33,10 @@ $purple: rgb(149, 108, 224);
 $blue: rgb(81, 137, 241);
 
 #root, body, html {
-    height: 100%;
+    min-height: 100%;
+    height: fit-content;
     width: 100%;
+    background-color: $purple;
 }
 
 .free {
@@ -87,8 +89,6 @@ button {
     background-color: $purple;
     margin: auto;
     padding-top: 60px;
-    height: 100%;
-    justify-content: flex-start;
     #header {
         @include flexCenter();
         padding-inline: 4px;
@@ -155,9 +155,23 @@ button {
             font-size: calc(min(30px, 5vw));
             font-family: BrutalFont;
             @include dropShadow(calc(max(0.3vw, 2px)));
+            position: relative;
         }
         .days {
             cursor: auto;
+        }
+        .has-note {
+            &::after {
+                content: '';
+                position: absolute;
+                width: calc(min(10px, 2vw));
+                height: calc(min(10px, 2vw));
+                top: 2px;
+                right: 2px;
+                background-color: $beige;
+                border: 2px solid black;
+                @include dropShadow(1px);
+            }
         }
     }
     #availability {
@@ -165,12 +179,47 @@ button {
         @include flexCenter();
         flex-wrap: wrap;
         gap: 4px;
+        padding-top: 1em;
         button {
             @include brutalStyle;
             font-size: 1.1em;
             padding: 0.25em 0;
             width: 100px;
             @include dropShadow(2px);
+        }
+    }
+    #note {
+        @include flexCenter();
+        flex-direction: column;
+        width: 100%;
+        padding-top: 1em;
+        padding-bottom: 40px;
+        div {
+            @include flexCenter();
+            flex-direction: column;
+            width: 250px;
+            position: relative;
+            button {
+                position: absolute;
+                right: 0.5em;
+                bottom: 0.5em;
+                @include brutalStyle();
+                background-color: $green;
+            }
+            textarea, p {
+                width: 100%;
+                height: 250px;
+                padding: 1em;
+                font-size: 0.9em;
+                @include brutalStyle();
+                @include dropShadow(4px);
+            }
+            textarea {
+                resize: none;
+                &:focus {
+                    outline: 2px dashed white;
+                }
+            }
         }
     }
 }

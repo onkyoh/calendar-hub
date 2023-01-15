@@ -2,10 +2,15 @@ import { doc, getDoc } from 'firebase/firestore'
 import React, {useState, useEffect} from 'react'
 import { db } from '../firebase-config'
 import { EMPTY_CALENDAR_2023 } from '../consts/constants'
+import useNote from './useNote'
 
 const useSchedule = (length, date, availability, month, calendarId) => {
 
-    const [schedule, setSchedule] = useState({...EMPTY_CALENDAR_2023()})
+    const dateIdx = date - 1
+
+    const [ schedule, setSchedule] = useState({...EMPTY_CALENDAR_2023()})
+
+    const [ noteValue, handleNoteValue ] = useNote( schedule, month, dateIdx)
 
     useEffect(() => {
     
@@ -21,8 +26,16 @@ const useSchedule = (length, date, availability, month, calendarId) => {
         getCalendar()
     }, [calendarId])
 
+    const addNote = () => {
+        if (!noteValue) return
+        let tempSchedule = {...schedule}
+        let tempMonth = [...tempSchedule[month]]
+        tempMonth[dateIdx] = {...tempMonth[dateIdx], note: noteValue}
+        tempSchedule[month] = [...tempMonth]
+        setSchedule({...tempSchedule})
+    }
+
     useEffect(() => {
-        const dateIdx = date - 1
         if (availability && date) {
             let tempSchedule = {...schedule}
             let tempMonth = [...tempSchedule[month]]
@@ -31,8 +44,14 @@ const useSchedule = (length, date, availability, month, calendarId) => {
             setSchedule({...tempSchedule})
         }
     }, [date])
-    
-    return [schedule]
+
+    const noteUtil = {
+        noteValue,
+        handleNoteValue,
+        addNote
+    }
+
+    return [schedule, noteUtil]
 }
 
 export default useSchedule

@@ -1,25 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import Calendar from './Calendar'
 import AvailabilityButton from './AvailabilityButton'
+import Note from './Note'
+
 import { AVAILABILITY_LIST, COLORS } from '../../consts/constants'
+import { saveCalendar } from '../../utils/saveCalendar'
 
 import useAvailability from '../../hooks/useAvailability'
 import useLayout from '../../hooks/useLayout'
 import useDate from '../../hooks/useDate'
 import useSchedule from '../../hooks/useSchedule'
+import useNote from '../../hooks/useNote'
 
 import NextIcon from '@iconscout/react-unicons/icons/uil-arrow-right'
 import LastIcon from '@iconscout/react-unicons/icons/uil-arrow-left'
 import SaveIcon from '@iconscout/react-unicons/icons/uil-save'
 import CalendarIcon from '@iconscout/react-unicons/icons/uil-calendar-alt'
-import {saveCalendar} from '../../utils/saveCalendar'
+
 
 const CalendarContainer = (props) => {
 
-    const {currentLayout, nextMonth, lastMonth} = useLayout()
-    const {availability, handleAvailability} = useAvailability(currentLayout.month, props.calendarInfo)
-    const {selectedDate, activeDate} = useDate(availability, currentLayout.month)
-    const [schedule] = useSchedule(currentLayout.length, selectedDate, availability, currentLayout.month, props.calendarInfo.usersCalendar)
+    const { currentLayout, nextMonth, lastMonth } = useLayout()
+    const { availability, handleAvailability } = useAvailability(currentLayout.month, props.calendarInfo)
+    const { selectedDate, activeDate } = useDate(availability, currentLayout.month)
+    const [ schedule, useNote ] = useSchedule(currentLayout.length, selectedDate, availability, currentLayout.month, props.calendarInfo.usersCalendar)
+
     
   return (
     <section id='calendar'>
@@ -57,6 +62,11 @@ const CalendarContainer = (props) => {
                 />  
             ))}
         </div>
+
+        <div id='note'>
+            {selectedDate && <Note {...useNote} usersCalendar={props.defaultCalendar.usersCalendar === props.calendarInfo.usersCalendar}/>}
+        </div>
+
     </section>
   )
 }

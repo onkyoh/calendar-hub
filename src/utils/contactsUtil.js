@@ -1,4 +1,4 @@
-import { arrayRemove, arrayUnion, doc, getDoc, updateDoc } from "firebase/firestore"
+import { arrayUnion, doc, getDoc, updateDoc } from "firebase/firestore"
 import { db } from "../firebase-config"
 
 export const accept = async (incomingInfo, usersInfo) => {

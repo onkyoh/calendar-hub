@@ -10,8 +10,12 @@
 }
 
 #root, body, html {
-  height: 100%;
+  min-height: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   width: 100%;
+  background-color: rgb(149, 108, 224);
 }
 
 .free {
@@ -31,6 +35,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: black;
 }
 
 .modals {
@@ -72,8 +77,6 @@ button {
   background-color: rgb(149, 108, 224);
   margin: auto;
   padding-top: 60px;
-  height: 100%;
-  justify-content: flex-start;
 }
 #calendar #header {
   display: flex;
@@ -155,9 +158,21 @@ button {
   font-size: min(30px, 5vw);
   font-family: BrutalFont;
   filter: drop-shadow(max(0.3vw, 2px) max(0.3vw, 2px) 0px black);
+  position: relative;
 }
 #calendar #grid .days {
   cursor: auto;
+}
+#calendar #grid .has-note::after {
+  content: "";
+  position: absolute;
+  width: min(10px, 2vw);
+  height: min(10px, 2vw);
+  top: 2px;
+  right: 2px;
+  background-color: rgb(247, 233, 187);
+  border: 2px solid black;
+  filter: drop-shadow(1px 1px 0px black);
 }
 #calendar #availability {
   width: 100%;
@@ -166,6 +181,7 @@ button {
   align-items: center;
   flex-wrap: wrap;
   gap: 4px;
+  padding-top: 1em;
 }
 #calendar #availability button {
   background-color: rgb(247, 233, 187);
@@ -174,6 +190,46 @@ button {
   padding: 0.25em 0;
   width: 100px;
   filter: drop-shadow(2px 2px 0px black);
+}
+#calendar #note {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 1em;
+  padding-bottom: 40px;
+}
+#calendar #note div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 250px;
+  position: relative;
+}
+#calendar #note div button {
+  position: absolute;
+  right: 0.5em;
+  bottom: 0.5em;
+  background-color: rgb(247, 233, 187);
+  border: 2px solid black;
+  background-color: rgb(122, 241, 152);
+}
+#calendar #note div textarea, #calendar #note div p {
+  width: 100%;
+  height: 250px;
+  padding: 1em;
+  font-size: 0.9em;
+  background-color: rgb(247, 233, 187);
+  border: 2px solid black;
+  filter: drop-shadow(4px 4px 0px black);
+}
+#calendar #note div textarea {
+  resize: none;
+}
+#calendar #note div textarea:focus {
+  outline: 2px dashed white;
 }
 
 .error {
