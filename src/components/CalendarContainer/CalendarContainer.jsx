@@ -4,7 +4,6 @@ import AvailabilityButton from './AvailabilityButton'
 import Note from './Note'
 
 import { AVAILABILITY_LIST, COLORS } from '../../consts/constants'
-import { saveCalendar } from '../../utils/saveCalendar'
 
 import useAvailability from '../../hooks/useAvailability'
 import useLayout from '../../hooks/useLayout'
@@ -16,6 +15,7 @@ import NextIcon from '@iconscout/react-unicons/icons/uil-arrow-right'
 import LastIcon from '@iconscout/react-unicons/icons/uil-arrow-left'
 import SaveIcon from '@iconscout/react-unicons/icons/uil-save'
 import CalendarIcon from '@iconscout/react-unicons/icons/uil-calendar-alt'
+import LoadingIcon from '@iconscout/react-unicons/icons/uil-spinner-alt'
 
 
 const CalendarContainer = (props) => {
@@ -23,7 +23,7 @@ const CalendarContainer = (props) => {
     const { currentLayout, nextMonth, lastMonth } = useLayout()
     const { availability, handleAvailability } = useAvailability(currentLayout.month, props.calendarInfo)
     const { selectedDate, activeDate } = useDate(availability, currentLayout.month)
-    const [ schedule, useNote ] = useSchedule(currentLayout.length, selectedDate, availability, currentLayout.month, props.calendarInfo.usersCalendar)
+    const [ schedule, useNote, useSave ] = useSchedule(currentLayout.length, selectedDate, availability, currentLayout.month, props.calendarInfo.usersCalendar)
 
     
   return (
@@ -31,10 +31,10 @@ const CalendarContainer = (props) => {
         <div id='header'>
             <p>{props.calendarInfo.usersName}'s</p>
             <button 
-            onClick={() => saveCalendar(props.defaultCalendar.usersCalendar, schedule)} 
+            onClick={() => useSave.saveCalendar(props.defaultCalendar.usersCalendar, schedule)} 
             disabled={props.defaultCalendar.usersCalendar !== props.calendarInfo.usersCalendar}
             >
-                <SaveIcon size={40}/>
+                {useSave.saving ? <LoadingIcon size={40} class='spin'/> : <SaveIcon size={40}/>}
             </button>
             <button onClick={() => props.switchCalendar({...props.defaultCalendar})}
              disabled={props.defaultCalendar.usersCalendar === props.calendarInfo.usersCalendar}

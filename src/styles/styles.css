@@ -111,6 +111,9 @@ button {
 #calendar #header button:last-of-type {
   background-color: rgb(81, 137, 241);
 }
+#calendar #header button:disabled {
+  opacity: 0.7;
+}
 #calendar #month-container {
   display: flex;
   justify-content: center;
@@ -524,9 +527,30 @@ aside #contacts #added button:last-of-type {
     transform: scale(1);
   }
 }
+@-webkit-keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 .pop-in {
   -webkit-animation: pop-in 0.25s ease-in-out;
           animation: pop-in 0.25s ease-in-out;
+}
+
+.spin {
+  -webkit-animation: spin 3s linear infinite;
+          animation: spin 3s linear infinite;
 }
 
 @media only screen and (min-width: 1000px) {
