@@ -29,13 +29,6 @@ const CalendarContainer = (props) => {
     props.calendarInfo.usersCalendar
   );
 
-  const yearStyle = {
-    position: "absolute",
-    top: "3px",
-    right: "3px",
-    fontSize: "0.9rem",
-  };
-
   return (
     <section id="calendar">
       <div id="header">
@@ -74,7 +67,7 @@ const CalendarContainer = (props) => {
         </button>
         <p>
           {LAYOUT[monthIdx].month}
-          <span style={yearStyle}>202{3 + Math.floor(monthIdx / 12)}</span>
+          <span>202{3 + Math.floor(monthIdx / 12)}</span>
         </p>
         <button
           onClick={nextMonth}

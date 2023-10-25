@@ -93,6 +93,7 @@ button {
       height: 100%;
       flex-grow: 1;
       font-size: calc(clamp(22px, 5vw, 30px));
+      text-transform: lowercase;
     }
     button {
       @include brutalStyle();
@@ -126,6 +127,13 @@ button {
       @include brutalStyle();
       @include dropShadow(calc(max(0.2vw, 2px)));
       text-transform: lowercase;
+      position: relative;
+      span {
+        position: absolute;
+        bottom: 0px;
+        font-size: 1rem;
+        font-weight: bold;
+      }
     }
     button {
       height: 100%;
