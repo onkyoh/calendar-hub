@@ -9,25 +9,14 @@
   font-family: BrutalFont;
 }
 
-#root, body, html {
+#root,
+body,
+html {
   min-height: 100%;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   width: 100%;
   background-color: rgb(149, 108, 224);
-}
-
-.free {
-  background-color: rgb(122, 241, 152) !important;
-}
-
-.mixed {
-  background-color: rgb(214, 243, 108) !important;
-}
-
-.busy {
-  background-color: rgb(255, 108, 145) !important;
 }
 
 button {
@@ -219,7 +208,8 @@ button {
   border: 2px solid black;
   background-color: rgb(122, 241, 152);
 }
-#calendar #note div textarea, #calendar #note div p {
+#calendar #note div textarea,
+#calendar #note div p {
   width: 100%;
   height: 250px;
   padding: 1em;
@@ -277,13 +267,6 @@ button {
 #login_page form label {
   width: 100%;
 }
-#login_page form span {
-  background-color: rgb(247, 233, 187);
-  border: 2px solid black;
-  background-color: rgb(255, 108, 145);
-  padding: 0.25em;
-  filter: drop-shadow(2px 2px 0px black);
-}
 #login_page form input {
   width: 100%;
   height: 2em;
@@ -311,7 +294,7 @@ button {
   width: 100%;
   text-align: center;
 }
-#login_page form .need-account p {
+#login_page form .need-account span {
   -webkit-text-decoration: underline 2px dashed rgb(81, 137, 241);
           text-decoration: underline 2px dashed rgb(81, 137, 241);
   cursor: pointer;
@@ -510,29 +493,12 @@ aside #contacts #added button:last-of-type {
   width: 100%;
 }
 
-@-webkit-keyframes pop-in {
-  from {
-    transform: scale(0);
-  }
-  to {
-    transform: scale(1);
-  }
-}
-
 @keyframes pop-in {
   from {
     transform: scale(0);
   }
   to {
     transform: scale(1);
-  }
-}
-@-webkit-keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
   }
 }
 @keyframes spin {
@@ -544,13 +510,11 @@ aside #contacts #added button:last-of-type {
   }
 }
 .pop-in {
-  -webkit-animation: pop-in 0.25s ease-in-out;
-          animation: pop-in 0.25s ease-in-out;
+  animation: pop-in 0.25s ease-in-out;
 }
 
 .spin {
-  -webkit-animation: spin 3s linear infinite;
-          animation: spin 3s linear infinite;
+  animation: spin 3s linear infinite;
 }
 
 @media only screen and (min-width: 1000px) {
@@ -573,4 +537,15 @@ aside #contacts #added button:last-of-type {
     justify-content: flex-start;
     padding: 0px;
   }
+}
+.free {
+  background-color: rgb(122, 241, 152) !important;
+}
+
+.mixed {
+  background-color: rgb(214, 243, 108) !important;
+}
+
+.busy {
+  background-color: rgb(255, 108, 145) !important;
 }/*# sourceMappingURL=styles.css.map */
