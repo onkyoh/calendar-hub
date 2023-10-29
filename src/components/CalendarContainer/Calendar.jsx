@@ -2,7 +2,7 @@ import { DAYS } from "../../consts/constants";
 import Button from "./Button";
 
 const Calendar = (props) => {
-  const buffers = Array(props.begins).fill();
+  const buffers = Array(props.buffer.begins).fill();
 
   const layout = Array(props.schedule.length).fill();
 

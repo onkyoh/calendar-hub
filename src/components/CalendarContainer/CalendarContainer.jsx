@@ -65,10 +65,8 @@ const CalendarContainer = (props) => {
         >
           <LastIcon size={30} />
         </button>
-        <p>
-          {LAYOUT[monthIdx].month}
-          <span>202{3 + Math.floor(monthIdx / 12)}</span>
-        </p>
+        <p>{LAYOUT[monthIdx].month}</p>
+        <p>202{3 + Math.floor(monthIdx / 12)}</p>
         <button
           onClick={nextMonth}
           disabled={monthIdx === LAYOUT.length - 1}
@@ -85,6 +83,7 @@ const CalendarContainer = (props) => {
           activeDate={activeDate}
           selectedDate={selectedDate}
           schedule={schedule[monthIdx]}
+          buffer={LAYOUT[monthIdx]}
         />
       )}
 
