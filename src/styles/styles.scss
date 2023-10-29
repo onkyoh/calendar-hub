@@ -21,8 +21,8 @@
   border: 2px solid black;
 }
 
-@mixin dropShadow($spread) {
-  filter: drop-shadow($spread $spread 0px black);
+@mixin dropShadow() {
+  filter: drop-shadow(2px 2px 0px black);
 }
 
 $beige: rgb(247, 233, 187);
@@ -56,7 +56,7 @@ button {
   border-top: none;
   h3 {
     @include brutalStyle();
-    @include dropShadow(3px);
+    @include dropShadow();
     background-color: white;
     padding: 0.25em 0.5em;
     margin-bottom: 0.5em;
@@ -64,7 +64,7 @@ button {
   button {
     width: 100%;
     @include brutalStyle();
-    @include dropShadow(3px);
+    @include dropShadow();
     font-size: 1.1em;
     padding: 0.25em;
     background-color: white;
@@ -88,7 +88,7 @@ button {
     aspect-ratio: 7/1;
     p {
       @include brutalStyle();
-      @include dropShadow(2px);
+      @include dropShadow();
       @include flexCenter();
       height: 100%;
       flex-grow: 1;
@@ -97,7 +97,7 @@ button {
     }
     button {
       @include brutalStyle();
-      @include dropShadow(2px);
+      @include dropShadow();
       height: 100%;
       aspect-ratio: 1/1;
       &:first-of-type {
@@ -125,21 +125,22 @@ button {
       height: 100%;
       font-size: calc(clamp(22px, 5vw, 30px));
       @include brutalStyle();
-      @include dropShadow(calc(max(0.2vw, 2px)));
+      @include dropShadow();
       text-transform: lowercase;
       position: relative;
       span {
         position: absolute;
-        bottom: 0px;
+        top: 0px;
+        right: 0px;
+        right: 3px;
         font-size: 1rem;
-        font-weight: bold;
       }
     }
     button {
       height: 100%;
       aspect-ratio: 1/1;
       @include brutalStyle();
-      @include dropShadow(calc(max(0.2vw, 2px)));
+      @include dropShadow();
     }
   }
   #grid {
@@ -156,7 +157,7 @@ button {
       color: black;
       font-size: calc(min(30px, 5vw));
       font-family: BrutalFont;
-      @include dropShadow(calc(max(0.3vw, 2px)));
+      @include dropShadow();
       position: relative;
     }
     .days {
@@ -172,7 +173,7 @@ button {
         right: 2px;
         background-color: $beige;
         border: 2px solid black;
-        @include dropShadow(1px);
+        @include dropShadow();
       }
     }
   }
@@ -187,7 +188,7 @@ button {
       font-size: 1.1em;
       padding: 0.25em 0;
       width: 100px;
-      @include dropShadow(2px);
+      @include dropShadow();
     }
   }
   #note {
@@ -215,7 +216,7 @@ button {
         padding: 1em;
         font-size: 0.9em;
         @include brutalStyle();
-        @include dropShadow(4px);
+        @include dropShadow();
       }
       textarea {
         resize: none;
@@ -233,7 +234,7 @@ button {
   margin: auto;
   @include brutalStyle();
   background-color: $pink;
-  @include dropShadow(2px);
+  @include dropShadow();
   padding: 0.25em 0.5em;
 }
 
@@ -247,12 +248,12 @@ button {
     flex-direction: column;
     width: calc(min(95%, 400px));
     @include brutalStyle();
-    @include dropShadow(4px);
+    @include dropShadow();
     padding: 1em;
     gap: 1em;
     h2 {
       @include brutalStyle();
-      @include dropShadow(2px);
+      @include dropShadow();
       background-color: white;
       text-align: center;
       padding: 0.25em 0.5em;
@@ -265,7 +266,7 @@ button {
       height: 2em;
       @include brutalStyle();
       background-color: white;
-      @include dropShadow(2px);
+      @include dropShadow();
       padding-left: 0.5em;
       &:focus {
         outline: 2px dashed $blue;
@@ -273,7 +274,7 @@ button {
     }
     button {
       @include brutalStyle();
-      @include dropShadow(2px);
+      @include dropShadow();
       background-color: white;
       text-align: center;
       padding: 0.25em 0.5em;
@@ -307,7 +308,7 @@ aside {
   flex-direction: column;
   justify-content: flex-start;
   @include brutalStyle();
-  @include dropShadow(4px);
+  @include dropShadow();
   transition: all 0.5s ease-in-out;
   #toggle {
     height: 35px;
@@ -410,7 +411,7 @@ aside {
           width: 95%;
           @include brutalStyle();
           background-color: white;
-          @include dropShadow(2px);
+          @include dropShadow();
           padding: 0.25em;
           gap: 0.25em;
           &:last-of-type {
